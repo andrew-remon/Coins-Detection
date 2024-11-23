@@ -20,10 +20,11 @@ With less than **100 lines of code**, the program can:
 ## Example Output.
 
 #### Input
-![Original Image](D:\Programming\Projects\Python Apps\Python Bootcamp 365\cap_project_virtual_env\Capstone project - Computer Vision\Images)
+<img src="Images/1-Original.png" alt="Original Image" width="500" height="500">
 
 #### Output
-![Final Result](D:\Programming\Projects\Python Apps\Python Bootcamp 365\cap_project_virtual_env\Capstone project - Computer Vision\Images)
+<img src="Images/4-Final-output-with-coins-sum.png" alt="Final Image" width="500" height="500">
+
 
 <br>
 
