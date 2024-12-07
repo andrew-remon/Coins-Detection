@@ -68,3 +68,5 @@ I would be glad to hear your opinions, suggestions for improvements, and share k
 **Email:** andrewremon2005@outlook.com
 <br>
 **GitHub:** https://github.com/andrew-remon
+<br>
+**LinkedIn:** www.linkedin.com/in/andrewremon
