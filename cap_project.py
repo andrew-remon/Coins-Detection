@@ -1,6 +1,7 @@
 # Import the necessary modules
 import numpy as np
 import cv2 as cv
+import os
 
 
 def av_pix(img,circles,size):
@@ -19,12 +20,21 @@ def get_circles_radius(circles):
         radii.append(coords[2])
     return radii
 
+# Get the directory of the script
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Define the relative path to the image (relative to the script's directory)
+image_path = os.path.join(script_dir, "Images", "1-Original.png")
 
 # Read the original image
-original_img = cv.imread("coins.png")
+# image_path = r"Images\1-Original.png"
+# image_path = "Images/1-Original.png"
+original_img = cv.imread(image_path)
 
-# convert the original photo to grayscale version and apply blurring.
-gray_img = cv.imread("coins.png", cv.IMREAD_GRAYSCALE)
+# Convert the original image to grayscale
+gray_img = cv.cvtColor(original_img, cv.COLOR_BGR2GRAY)
+
+# Apply GaussianBlur to the grayscale image
 gray_img = cv.GaussianBlur(gray_img, (7, 7), 0)
 
 # apply the houghCircle algorithm
@@ -49,12 +59,6 @@ counter_1 = 1
 for circle in circles[0,:]:
 
     cv.circle(original_img, (circle[0], circle[1]), circle[2], (255, 255, 255), 2)
-    # cv.putText(original_img,
-    #         f"{counter}",
-    #         (circle[0], circle[1]),
-    #         cv.FONT_HERSHEY_SIMPLEX,
-    #         1.5,
-    #         (0, 0, 0), 2)
     counter_1 +=1
 
 # get the list of radii and brightness values to be compared
@@ -92,7 +96,7 @@ for circle in circles[0,:]:
 cv.putText(original_img, f"estimated sum of coins: {sum(values)}", (100, 100), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
 # show the original photo after detecting and calculating the value of every coin.
-cv.imshow("detected coins", original_img)
+cv.imshow("Detected coins", original_img)
 cv.waitKey(0)
 cv.destroyAllWindows()
 
